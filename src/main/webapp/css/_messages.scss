@@ -1,0 +1,30 @@
+%message {
+    @include border-radius(3px);
+    display: block;
+    border-style: solid;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #4d3f59;
+    line-height: 15px;
+    padding: 7px 10px;
+    margin: 15px 0;
+}
+.error-message {
+    @extend %message;
+    @include background-image(linear-gradient(#b8000a, #9d0009));
+    color: #ffffff;
+    border-color: #ae464c #8C0009 #7F0008 #7F0008;
+}
+.info-message {
+    @extend %message;
+    @include background-image(linear-gradient(#275b80, #235274));
+    color: #ffffff;
+    border-color: #275b80 #235274 #235274 #275b80;
+}
+.success-message {
+    @extend %message;
+    @include background-image(linear-gradient(#3cff9e, #34dd8a));
+    color: #ffffff;
+    border-color: #3cff9e #34dd8a #34dd8a #3cff9e;
+}

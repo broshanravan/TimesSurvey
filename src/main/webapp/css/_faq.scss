@@ -1,0 +1,64 @@
+.paget-title {
+  font-size: 28px;
+}
+
+.shortage-list {
+  margin: 20px 0;
+  padding: 20px 0;
+  border: solid #cfcfcf;
+  border-width: 1px 0;
+  li {
+    margin: 5px 0;
+  }
+  a {
+    color: #0ba048;
+    font-size: 14px;
+  }
+  a:hover {
+    color: #08843b;
+
+    .number {
+      color: #464748;
+    }
+  }
+  .number {
+    color: #646567;
+    padding-right: 10px;
+  }
+  .text {
+    text-decoration: underline;
+  }
+}
+
+.feefo-accordion {
+  margin-bottom: 20px;
+  h3 {
+    font-size: 18px;
+    margin: 20px 0 10px;
+    padding-top: 20px;
+    border-top: solid 1px #cfcfcf;
+  }
+  h3.first {
+    padding: 0;
+    border: 0;
+  }
+  p {
+    color: #646567;
+    line-height: 1.5;
+  }
+
+  .nav-up {
+    overflow: hidden;
+    text-align: right;
+    margin-top: 10px;
+
+    a {
+      @include inline-block(top);
+      color: #0b9f47;
+      @include font-family(bold);
+    }
+    .icon-arrow-up {
+      margin-right: 6px;
+    }
+  }
+}

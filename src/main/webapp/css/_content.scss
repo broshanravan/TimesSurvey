@@ -1,0 +1,119 @@
+.full-width-header {
+  text-align: center;
+  line-height: 1.4;
+  margin: 30px 0;
+  clear: both;
+  h2 {
+    font-size: 30px;
+  }
+  h3 {
+    @include font-family(normal);
+    font-size: 18px;
+  }
+}
+
+.content-tabs {
+  border-top: solid 1px #d8d7d8;
+  margin-bottom: 30px;
+}
+
+.content-section {
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  border-bottom: solid 1px #d8d7d8;
+  font-size: 15px;
+  float: left;
+  width: 100%;
+  text-align: center;
+
+  h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  .content-image {
+    max-width: 100%;
+  }
+
+  .read-more {
+    @include font-family(bold);
+    color: #0b9f47;
+  }
+  .read-more:hover {
+    text-decoration: underline;
+  }
+}
+.content-section:after {
+  content: "";
+  height: 0;
+  width: 100%;
+  clear: both;
+  display: block;
+}
+
+.checked-list {
+  li {
+    background: url(#{$imagesPath}normal-images/checked-list-item.png) no-repeat 5px 5px;
+    padding-left: 35px;
+    margin-bottom: 10px;
+    clear: both;
+    display: block;
+    color: #646567;
+    min-height: 30px;
+    text-align: left;
+    line-height: 1.4;
+    font-size: 14px;
+  }
+
+  @include retina-display() {
+    background: url(#{$imagesPath}retina-images/checked-list-item.png) no-repeat 5px 5px;
+    background-size: 15px 15px;
+  }
+}
+.text-content-sticky .content-section {
+  padding-bottom: 0;
+}
+.content-section {
+  .item-aligned-right p, .item-aligned-left p, .item-justified p {
+    font-size: 14px;
+    text-align: left;
+    line-height: 1.45;
+    margin-bottom: 10px;
+    color: #646567;
+  }
+
+  strong {
+    @include font-family(bold);
+  }
+}
+@include breakpoint(tablet) {
+  .content-tabs {
+    border-top: 0;
+  }
+  .content-section.item-align-right {
+    .content-image {
+      float: right;
+      display: inline;
+      margin-left: 5px;
+      max-width: 45%;
+    }
+
+    .item-aligned-left {
+      float: left;
+      max-width: 50%;
+    }
+  }
+
+  .content-section.item-align-left {
+    .content-image {
+      float: left;
+      display: inline;
+      margin-right: 5px;
+      max-width: 45%;
+    }
+    .item-aligned-right {
+      float: right;
+      max-width: 50%;
+    }
+  }
+}

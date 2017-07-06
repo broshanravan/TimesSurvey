@@ -1,0 +1,67 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.feefo.times"/>
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:spring.properties"/>
+    </bean>
+    <bean id="surveyDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://${db.host}:3306/time_survey"/>
+        <property name="username" value="${db.username}"/>
+        <property name="password" value="${db.password}"/>
+
+    </bean>
+
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+
+        <property name="basename" value="/WEB-INF/messages">
+
+        </property></bean>
+
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource">
+            <ref bean="surveyDataSource" />
+        </property>
+    </bean>
+
+    <bean id="formDataDAO" class="com.feefo.times.dl.FormDataDAOImpl">
+        <!--<property name="surveyDataSource" ref="surveyDataSource"/>-->
+    </bean>
+
+    <bean id ="formItemLoader" class="com.feefo.times.bl.FormItemLoaderImpl" >
+        <property name="formDataDAO"     ref="formDataDAO"/>
+    </bean>
+
+    <bean id ="questionServ" class="com.feefo.times.service.QuestionServImpl" />
+
+    <bean id ="AnswerServ" class="com.feefo.times.service.AnswerServImpl" />
+
+    <bean id ="categoryServ" class="com.feefo.times.service.CategoryServImpl" />
+
+    <bean id ="ParticipantServ" class="com.feefo.times.service.ParticipantServImpl" />
+
+
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix">
+            <value>WEB-INF/pages/</value>
+        </property>
+        <property name="suffix">
+            <value></value>
+        </property>
+    </bean>
+
+
+
+</beans>

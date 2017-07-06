@@ -1,0 +1,1 @@
+ALTER TABLE time_survey.submitted_answer MODIFY COMMENTS_TXT TEXT;

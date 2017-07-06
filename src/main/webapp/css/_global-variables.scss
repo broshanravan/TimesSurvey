@@ -1,0 +1,25 @@
+$defaultTextColor: #646567;
+$lightTextColor: #aaaaab;
+$superLightTextColor: #fff;
+$linkColor: #0b9f47;
+$highlightTextColor: red;
+
+
+$headingsColor: #646567;
+
+$background: #edeced;
+$contentBackground: #fff;
+
+$headerBackground: #646567;
+$headerTextColor: #FFF;
+
+$defaultFontSize: 13px;
+
+$mobileFooterHeightOuter: 210px;
+
+$loaderSizes: 24, 32;
+$imagesPath: '../images/';
+
+/* spacing should be 2x bigger in retina sprite map */
+$sprites-normal: sprite-map("normal-sprite/*.png", $layout: horizontal, $spacing: 2px);
+$sprites-retina: sprite-map("retina-sprite/*.png", $layout: horizontal, $spacing: 4px);

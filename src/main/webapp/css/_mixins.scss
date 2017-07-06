@@ -1,0 +1,70 @@
+@mixin breakpoint($point) {
+  @if $point == smartphone-big {
+    @media (min-width: 480px) { @content; }
+  }
+  @else if $point == tablet {
+    @media (min-width: 641px) { @content; }
+  }
+  @else if $point == web {
+    @media (min-width: 1024px)  { @content; }
+  }
+};
+
+@mixin font-family($weight) {
+  @if $weight == bold {
+    font-family: "TeXGyreAdventorBold", Arial, "Helvetica Neue", sans-serif;
+  }
+  @else if $weight == normal{
+    font-family: "RobotoLight", Arial, "Helvetica Neue", sans-serif;
+  }
+}
+
+@mixin retina-display() {
+    @media
+    only screen and (-webkit-min-device-pixel-ratio: 1.5),
+    only screen and (-o-min-device-pixel-ratio: 3/2),
+    only screen and (min--moz-device-pixel-ratio: 1.5),
+    only screen and (min-device-pixel-ratio: 1.5) {
+        @content;
+    }
+
+    body.dpx2 &,
+    body.dpx1_5 &{
+        @content;
+    }
+}
+/**************************************************************************************
+ *                          ICONS
+ *************************************************************************************/
+%icon {
+    @include hide-text();
+    @include inline-block(baseline);
+    background-image: sprite-url($sprites-normal);
+    background-repeat: no-repeat;
+    @include retina-display() {
+        @include background-size(image-width(sprite-path($sprites-normal)) image-height(sprite-path($sprites-normal)));
+        background-image: sprite-url($sprites-retina);
+    }
+}
+@mixin icon-image($name) {
+    @extend %icon;
+    @include sprite-dimensions($sprites-normal, $name);
+    background-position: sprite-position($sprites-normal, $name);
+}
+
+@mixin icon-class($name) {
+    .icon-#{$name} {
+        @include icon-image($name);
+        @content;
+    }
+}
+
+/**************************************************************************************
+ *                          TOUCH STYLES
+ *************************************************************************************/
+
+@mixin tap-highlight($color: rgba(0,0,0,0)) {
+    html.touch & {
+        -webkit-tap-highlight-color: $color;
+    }
+}

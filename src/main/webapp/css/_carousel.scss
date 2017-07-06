@@ -1,0 +1,162 @@
+.carousel-container {
+    position: relative;
+}
+.carousel {
+    width: 100%;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+}
+.carousel-item {
+    @include transition(left 0.3s ease-in-out);
+    overflow: hidden;
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    &.next-to-current {
+        display: block;
+        left: 200%;
+    }
+    &.previous-to-current {
+        display: block;
+        left: -200%;
+    }
+    &.current {
+        display: block;
+        left: 0;
+        z-index: 1;
+    }
+    &.previous {
+        display: block;
+        left: -100%;
+    }
+    &.next {
+        display: block;
+        left: 100%;
+    }
+    &.no-transition {
+        @include transition(none);
+    }
+    img {
+        width: 100%;
+    }
+    html.csstransforms3d & {
+        @include transition(transform 0.3s ease-in-out);
+        &.next-to-current {
+            @include translate3d(200%, 0, 0);
+            display: block;
+            left: 0;
+        }
+        &.previous-to-current {
+            @include translate3d(-200%, 0, 0);
+            display: block;
+            left: 0;
+        }
+        &.current {
+            @include translate3d(0, 0, 0);
+            display: block;
+            left: 0;
+        }
+        &.previous {
+            @include translate3d(-100%, 0, 0);
+            display: block;
+            left: 0;
+        }
+        &.next {
+            @include translate3d(100%, 0, 0);
+            display: block;
+            left: 0;
+        }
+        &.no-transition {
+            @include transition(none);
+        }
+    }
+}
+.carousel-nav {
+    text-align: center;
+    list-style: none;
+    position: absolute;
+    bottom: 20px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  z-index: 20;
+}
+.carousel-nav li {
+    display: inline-block;
+}
+.carousel-nav-item {
+    @include single-transition(border-color, 0.2s, linear);
+    @include hide-text();
+    @include opacity(0.7);
+    @include border-radius(0.75em);
+
+    background: #aaaaab;
+    display: block;
+    margin-right: 0.3em;
+    height: 0.75em;
+    width: 0.75em;
+    position: relative;
+    z-index: 20;
+}
+.carousel-nav-item.current {
+    background-color: #fadd06;
+}
+
+.carousel-prev, .carousel-next {
+    @include opacity(0.7);
+    @include border-radius(1em);
+
+    position: absolute;
+    top: 43%;
+    z-index: 20;
+    text-align: center;
+    font-weight: bold;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+.carousel-nav-start, .carousel-nav-stop, .carousel-bottom-slidebuttons a {
+  @include inline-block(baseline);
+  background-image: url(#{$imagesPath}normal-images/carousel-skin.png);
+  width: 25px;
+  height: 20px;
+}
+
+.carousel-nav-start {
+  background-position: -300px 0px;
+}
+
+.carousel-nav-start:hover,
+.carousel-nav-start-active {
+  background-position: -300px -75px;
+}
+
+.carousel-nav-stop {
+  background-position: -450px 0px;
+}
+
+.carousel-nav-stop:hover,
+.carousel-nav-stop-active {
+  background-position: -450px -75px;
+}
+.carousel-bottom-slidebuttons a {
+  width: 20px;
+  height: 20px;
+  background-position: 0px -150px;
+}
+
+.carousel-bottom-slidebuttons a.carousel-nav-active,
+.carousel-bottom-slidebuttons a:hover {
+  width: 20px;
+  height: 20px;
+  background-position: -75px -150px;
+}

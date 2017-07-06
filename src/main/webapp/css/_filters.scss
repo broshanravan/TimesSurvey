@@ -1,0 +1,155 @@
+.heading.customers-tiles-ratings .filter {
+  display: block !important;
+}
+
+.full-filter {
+  border-bottom-width: 0px !important;
+  padding-bottom: 0 !important;
+
+  .filter {
+    float: none;
+    display: block;
+    clear: both;
+    background: #fafafa;
+    padding: 10px;
+    border: solid #ececec;
+    border-width: 1px 0;
+    margin: 10px -15px 0;
+    min-height: 32px;
+    font-size: 0;
+  }
+
+  .search-autocomplete {
+    position: absolute;
+    left: 5%;
+    width: 40%;
+    font-size: 14px;
+  }
+  .dd-container {
+    position: absolute;
+    right: 5%;
+    font-size: 14px;
+    width: 40% !important;
+  }
+  .dd-select {
+    background-color: #fff !important;
+    border-color: #e6e6e6;
+    height: 32px;
+    width: auto !important;
+  }
+  .dd-selected-text {
+    font-weight: normal;
+  }
+  .dd-options {
+    right: 0;
+  }
+}
+
+.dd-selected:after {
+  width: 32px;
+  height: 100%;
+  background: #f5f5f5;
+  border-left: solid 1px #e6e6e6;
+  display: block;
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.navigation {
+  text-align: center;
+  padding: 3% 2%;
+  a {
+    @include inline-block(baseline);
+    margin: 0 5px;
+    min-width: 81px;
+  }
+
+  .display-settings {
+    display: none;
+  }
+}
+
+@include breakpoint(tablet) {
+  .display-settings {
+    display: block;
+  }
+
+  .box .heading.full-filter {
+    min-height: 60px;
+    h2 {
+      float: left;
+      font-size: 24px;
+      line-height: 1;
+    }
+    .filter {
+      float: right;
+      clear: none;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+    .dd-container {
+      width: 140px !important;
+      right: 0;
+    }
+    .search-autocomplete {
+      width: 120px;
+      right: 150px;
+      left: auto;
+    }
+  }
+}
+
+@include breakpoint(web) {
+  .box .heading.full-filter {
+    .search-autocomplete {
+      width: 180px;
+      left: auto;
+    }
+
+    label.filter-label {
+      font-size: 14px;
+      position: absolute;
+      right: 370px;
+      top: 24px;
+      color: #aaaaab;
+    }
+  }
+}
+
+/**
+ * CSS File for ezMark jQuery Plugin
+ *
+ **/
+.ez-hide { opacity: 0; filter:alpha(opacity=0); }
+.ez-checkbox {
+  @include inline-block(baseline);
+  width: 20px;
+  height: 20px;
+  background: transparent url(#{$imagesPath}normal-images/checkbox.png) repeat left top;
+  cursor: pointer;
+
+  @include retina-display() {
+    background: url(#{$imagesPath}retina-images/checkbox.png) no-repeat 0 0;
+    background-size: 20px 40px;
+  }
+}
+
+.ez-radio {
+  background: transparent url('../images/radio-black.png') 0 1px no-repeat;
+  display:inline-block;
+}
+
+.ez-checked { background-position: 0 -20px; }
+.ez-selected { background-position: 0 -19px; }
+
+.ez-checkbox-green {
+  background: transparent url('../images/checkbox-green.png') 0 1px no-repeat;
+  display:inline-block;
+  *display: inline;
+}
+.ez-checked-green { background-position: 0 -18px; }
+.ez-checkbox, .ez-radio { zoom: 1; *display:inline; _height:30px; }
+
